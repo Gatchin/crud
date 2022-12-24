@@ -6,8 +6,8 @@ import jakarta.validation.constraints.Size;
 public class Person {
 
     private int id;
-    @Size(message = "Name should be greater than 20 symbols")
-    @Min(message = "greater than 2 symbols", value = 2L)
+   // @Size(message = "Name should be greater than 20 symbols")
+    //@Min(message = "greater than 2 symbols", value = 2L)
     private String name;
     private int age;
 

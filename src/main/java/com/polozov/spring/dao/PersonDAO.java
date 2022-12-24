@@ -51,6 +51,7 @@ public class PersonDAO {
         Person person = null;
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM Person WHERE id=?");
+            preparedStatement.setInt(1,id);
             ResultSet resultSet = preparedStatement.executeQuery();
             resultSet.next();
             person = new Person();
@@ -68,7 +69,7 @@ public class PersonDAO {
             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO Person values (1,?,?)");
             preparedStatement.setString(1, person.getName());
             preparedStatement.setInt(2,person.getAge());
-            preparedStatement.executeQuery();
+            preparedStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
