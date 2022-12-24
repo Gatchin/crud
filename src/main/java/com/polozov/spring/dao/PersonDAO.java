@@ -77,11 +77,11 @@ public class PersonDAO {
 
     public void update(int id, Person person) {
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE Person SET id=?, name=?,age=?");
+            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE Person SET id=?,name=?,age=?");
             preparedStatement.setInt(1,id);
             preparedStatement.setString(2, person.getName());
             preparedStatement.setInt(3,person.getAge());
-            preparedStatement.executeQuery();
+            preparedStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -91,7 +91,7 @@ public class PersonDAO {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("DELETE  FROM Person WHERE id=?");
             preparedStatement.setInt(1,id);
-            preparedStatement.executeQuery();
+            preparedStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
